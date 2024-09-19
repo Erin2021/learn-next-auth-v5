@@ -1,0 +1,1 @@
+export { auth as middleware } from "@/auth"//session이 30일 이후에는 유지가 되지 않을 것->30일뒤에 자동 로그아웃
