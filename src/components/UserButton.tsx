@@ -14,7 +14,7 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 import { Lock } from "lucide-react";
-import { signOut } from "@/auth";
+import { signOut } from "next-auth/react";
 
 interface UserButtonProps {
   user: User;
@@ -57,16 +57,13 @@ export default function UserButton({ user }: UserButtonProps) {
         <DropdownMenuSeparator />
         <DropdownMenuItem asChild>
           {/* TODO: Add a logout functionality */}
-          <form
-            action={async () => {
-              "use server";
-              await signOut();
-            }}
+
+          <button
+            onClick={() => signOut({ callbackUrl: "/" })}
+            className="flex w-full items-center"
           >
-            <button type="submit" className="flex w-full items-center">
-              <LogOut className="mr-2 h-4 w-4" /> Sign Out
-            </button>
-          </form>
+            <LogOut className="mr-2 h-4 w-4" /> Sign Out
+          </button>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

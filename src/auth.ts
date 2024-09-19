@@ -3,12 +3,14 @@ import { PrismaAdapter } from "@auth/prisma-adapter";
 import prisma from "./lib/prisma";
 import Google from "next-auth/providers/google";
 import GitHub from "next-auth/providers/github";
+import { Adapter } from "next-auth/adapters";
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
+  trustHost:true,
   theme: {
     logo: "/logo.png",
   },
-  adapter: PrismaAdapter(prisma), //db가 연결되었다.
+  adapter: PrismaAdapter(prisma) as Adapter, //db가 연결되었다.
   providers: [Google, GitHub], //로그인 제3자 제공자
 });
 

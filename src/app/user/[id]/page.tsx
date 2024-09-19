@@ -31,7 +31,8 @@ export async function generateMetadata({ params: { id } }: PageProps) {
 export default async function Page({ params: { id } }: PageProps) {
   // Artificial delay to showcase static caching
   await new Promise((resolve) => setTimeout(resolve, 1500));
-
+  //기존코드가 cache되지 않았기에 계속 로딩이 되는 문제점을 보여주려던 코드
+  //layout을 SessionProvider로 감싸고, 그 안에서 데이터를 불러올경우 세션이 어디든 제공이 된다. navbar이 client side로서 데이터를 불러오고 로그인로그아웃을 한다.
   const user = await getUser(id);
 
   if (!user) notFound();

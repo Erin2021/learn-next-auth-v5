@@ -7,6 +7,6 @@ declare module "next-auth" {//모듈확장
   }
 
   interface User {
-    role?: String | null;
+    role: String | null;
   }
 }
