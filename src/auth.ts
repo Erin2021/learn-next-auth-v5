@@ -11,6 +11,12 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     logo: "/logo.png",
   },
   adapter: PrismaAdapter(prisma) as Adapter, //db가 연결되었다.
+  callbacks:{
+    session({session,user}){//session에 확장데이터 적용
+      session.user.role = user.role;
+      return session
+    },
+  },
   providers: [Google, GitHub], //로그인 제3자 제공자
 });
 

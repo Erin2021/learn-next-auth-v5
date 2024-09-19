@@ -17,6 +17,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { updateProfile } from "./actions";
 import { User } from "next-auth";
+import { useSession } from "next-auth/react";
 
 interface SettingsPageProps{
   user:User;
@@ -25,6 +26,8 @@ interface SettingsPageProps{
 
 export default function SettingsPage({user}:SettingsPageProps) {
   const { toast } = useToast();
+
+  const session=useSession();//이름을 변경했는데 navbar에 영향을 못줌.navbar은 clientside라서 cache된거보여주거든.그거해결
 
   const form = useForm<UpdateProfileValues>({
     resolver: zodResolver(updateProfileSchema),
@@ -36,6 +39,7 @@ export default function SettingsPage({user}:SettingsPageProps) {
     try {
       await updateProfile(data);
       toast({ description: "Profile updated." });
+      session.update();//이걸로 session refetch. clientside 캐시해결
     } catch (error) {
       toast({
         variant: "destructive",
