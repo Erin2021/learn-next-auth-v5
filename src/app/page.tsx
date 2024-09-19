@@ -1,6 +1,5 @@
 import prisma from "@/lib/prisma";
 import Link from "next/link";
-import { Key } from "react";
 
 export default async function Home() {
   const users = await prisma.user.findMany();
