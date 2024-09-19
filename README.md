@@ -1,4 +1,4 @@
-세션 관리, 인증를 도와주는 라이브러리인 `next-auth`를 [`Coding in Flow`](https://www.youtube.com/@codinginflow)의 [Next-Auth V5 Tutorial (OAuth, Email, Server Actions, Server-Side Auth, Client-Side Auth, Roles)]([https://nextjs.org/](https://youtu.be/bMYZSi_LZ2w?feature=shared))를 보며 학습합니다.
+세션 관리, 인증을 도와주는 라이브러리인 `next-auth`를 [`Coding in Flow`](https://www.youtube.com/@codinginflow)의 [Next-Auth V5 Tutorial (OAuth, Email, Server Actions, Server-Side Auth, Client-Side Auth, Roles)](https://youtu.be/bMYZSi_LZ2w?feature=shared)를 보며 학습합니다.
 
 ## 배운 것
 - next-auth에는 adoptor(해당 프로젝트에서는 prisma)을 연결하여 시작합니다.
