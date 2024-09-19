@@ -9,7 +9,7 @@ import { revalidatePath } from "next/cache";
 
 export async function updateProfile(values: UpdateProfileValues) {
   // TODO: Get the currently authenticated user//settings를 보호하긴했지만, 그래도 다시 유저정보를 가져온다.-만일의 경우대비
-  const session = await auth();
+  const session = await auth();//여기서는 import getSession from "@/lib/getSession"; 사용안함-서버액션에서 안함:열면 자동으로 서버req보내니까 그리고 버튼 누를때 작동되는 코드니까 chached버전 사용하고 싶지 않아.//getSessioin은 페이지가 열릴때만 사용하고 싶어
   const userId = session?.user?.id;
 
   if (!userId){

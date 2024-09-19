@@ -2,11 +2,12 @@ import { auth, signIn } from "@/auth";
 import Link from "next/link";
 import { Button } from "./ui/button";
 import UserButton from "./UserButton";
+import getSession from "@/lib/getSession";
 
 export default async function NavBar() {
   //서버컴포넌트 async사용가능-데이타패칭
   // TODO: Show the currently logged-in user
-  const session = await auth(); //로그인유저정보가져올 수 있음
+  const session = await getSession(); //로그인유저정보가져올 수 있음
   const user = session?.user; //유저유무판별
 
   return (
